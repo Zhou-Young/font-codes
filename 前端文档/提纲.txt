@@ -1,0 +1,44 @@
+﻿1. 环境配置
+
+2. 编辑器
+	notepad++
+	sublime text 3
+	webstom
+	vscode(推荐使用)
+
+3. 调试工具
+    chrome firefox IE
+
+4. 内容    
+	1. html
+	   常用标签
+	2. js
+	   基本数据结构
+	3. css
+	   盒子模型
+5. 参考资料
+
+教程：慕课网：http://www.imooc.com/topic/webqianduan?mc_marking=841cd055099bc3fce053c802ff052e23&mc_channel=bdqdrmjt
+
+学习路线：https://github.com/qiu-deqing/FE-learning
+http://www.jianshu.com/p/b9ad2af81e35
+
+入门：
+http://www.imooc.com/course/list?c=html
+html+css
+http://www.imooc.com/learn/9
+
+英文：
+https://www.codecademy.com
+
+w3school：http://www.w3school.com.cn/h.asp
+css参考手册：http://css.doyoe.com/
+
+
+参考书籍：
+JavaScript权威指南
+css权威指南 高级Web标准解决方案 CSS揭秘
+
+bootstrap 
+react vue angular 
+echart 

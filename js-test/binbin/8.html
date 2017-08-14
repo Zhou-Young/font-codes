@@ -1,0 +1,195 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>8</title>
+        <style>
+        .first{
+            border: 1px solid black;
+            width: 900px;
+            height: 600px;
+            border-radius: 20px;
+        }
+        .second{
+            border: 1px solid black;
+            width: 400px;
+            height: 500px;
+            float: left;
+            margin: 20px;
+            border-radius: 20px;
+        }
+        .third{
+            border: 1px solid black;
+            width: 300px;
+            height: 200px;
+            float: left;
+            margin: 20px;
+            border-radius: 20px;
+        }
+        .fourth{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 20px;
+            border-radius: 20px;
+        }
+        body{
+            text-align: center;
+        }
+    
+        </style>
+    </head>
+    <body>
+        <div class="first" id="root">
+            1
+            <div class="second">
+                2-1
+                <div class="third">
+                    2-1-3-1
+                    <div class="fourth">2-1-3-1-4-1</div>
+                    <div class="fourth">2-1-3-1-4-2</div>
+                </div>
+                <div class="third">
+                     2-1-3-2
+                    <div class="fourth">2-1-3-2-4-1</div>
+                    <div class="fourth">2-1-3-2-4-1</div>
+                </div>
+            </div>
+            <div class="second">
+                1-2-2
+                <div class="third">
+                    2-2-3-1
+                    <div class="fourth">2-1-3-1-4-1</div>
+                    <div class="fourth">2-1-3-1-4-2</div>
+                </div>
+                <div class="third">
+                     2-2-3-2
+                    <div class="fourth">2-1-3-2-4-1</div>
+                    <div class="fourth">2-1-3-2-4-1</div>
+                </div>
+            </div>
+        </div>
+
+        <input type="button" id="perOrder" value="先序遍历"/>
+		<input type="button" id="inOrder" value="中序遍历"/>
+        <input type="button" id="postOrder" value="后序遍历"/>
+        <input type="text" id="inputText"/>
+        <input type="button" id="textSearch" value="搜索"/>
+        
+        <script>
+            var perO=document.getElementById("perOrder");
+            var inO=document.getElementById("inOrder");
+            var postO=document.getElementById("postOrder");
+            var petextSearchrS=document.getElementById("textSearch");
+            var divs = [];
+            var searchDiv=[];
+            var timer = null;
+            var root=document.getElementById('root');
+            var sText=document.getElementById('inputText');
+            textSearch.onclick = function(){
+                clear();
+                perOrder(root);
+                changeC();
+            }
+            function changeC(){
+                var i = 0;
+                divs[i].style.background =  "#3355d0";
+                timer = setInterval(function(){
+                    i++;
+                    if(i < divs.length){
+                        var c=divs[i].innerText.split(" ");//将divs中的text类型的值取出以‘ ’为分隔储存为新的数组
+                        if(c[0].indexOf(sText.value)>=0){
+                            searchDiv.push(divs[i]);
+                            divs[i - 1].style.background = "#ffffff";
+                            divs[i].style.background = "#b0e11e";
+                        }
+                        else{
+                            divs[i - 1].style.background = "#ffffff";
+                            divs[i].style.background = "#3355d0";
+                        }
+                        
+                    }else{
+                        clearInterval(timer);
+                        divs[divs.length - 1].style.background = "#ffffff";
+                        alert("we have search "+searchDiv.length);
+                        for(var m=0;m<searchDiv.length;m++){
+                            searchDiv[m].style.background = "#b0e11e";
+                        }
+                        searchDiv=[];
+                    }
+                },100)
+            }
+            perO.onclick = function(){
+                clear();
+                perOrder(root);
+                changeColor();
+            }
+
+            inO.onclick = function(){
+                clear();
+                inOrder(root);
+                changeColor();
+                
+            }
+            
+            postO.onclick = function(){
+                clear();
+                postOrder(root);
+                changeColor();
+            }
+
+            function perOrder(node){
+                if(!(node == null)){
+                    divs.push(node);
+                    perOrder(node.children[0]);
+                    perOrder(node.children[1]);
+                    
+                }
+            }
+
+            function inOrder(node){
+                if(!(node == null)){
+                    inOrder(node.children[0]);
+                    divs.push(node);
+                    inOrder(node.children[1]);
+                }
+            }
+            
+            function postOrder(node){
+                if(!(node == null)){
+                    postOrder(node.children[0]);
+                    postOrder(node.children[1]);
+                    divs.push(node);
+                }
+            }
+            
+            function changeColor(){
+                var i = 0;
+                divs[i].style.background =  "#3355d0";
+                timer = setInterval(function(){
+                    i++;
+                    if(i < divs.length){
+                        divs[i - 1].style.background = "#ffffff";
+                        divs[i].style.background = "#3355d0";
+                        
+                    }else{
+                        clearInterval(timer);
+                        divs[divs.length - 1].style.background = "#ffffff";
+                    }
+                },500)
+            }
+            /* 防止遍历同时进行 */
+            function clear(){
+                divs = [];
+                clearInterval(timer);
+                var oDiv = document.getElementsByTagName('div');
+                for(var i = 0; i < oDiv.length; i++){
+                    oDiv[i].style.background = "#FFFFFF";
+                    
+                }
+            }
+
+        </script>
+    </body>
+</html>

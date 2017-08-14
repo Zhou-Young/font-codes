@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #bg{
+            width: 400px;
+            height: 400px;
+            background-color: rgb(123,123,123);
+        }
+    </style>
+    <script type="text/javascript">
+        function startTime()
+        {
+            var today=new Date();
+            var h=today.getHours();
+            var m=today.getMinutes();
+            var s=today.getSeconds();
+            m=checkTime(m);
+            s=checkTime(s);
+            document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+            document.getElementById("ccolor").innerHTML="background:rgb("+Math.floor(h*256/24)+","+Math.floor(m*256/60)+","+Math.floor(s*256/60)+")";
+            document.getElementById("bg").style.backgroundColor="rgb("+Math.floor(h*256/24)+","+Math.floor(m*256/60)+","+Math.floor(s*256/60)+")";
+            t=setTimeout('startTime()',500);
+        }
+
+        function checkTime(i)
+        {
+            if (i<10)
+            {i="0" + i}
+            return i
+        }
+    </script>
+</head>
+
+<body onload="startTime()">
+<div id="bg">
+    <div id="txt"></div>
+    <p id="ccolor">background</p>
+</div>
+
+
+</body>
+</html>

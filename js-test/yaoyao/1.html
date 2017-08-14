@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        form{
+            font-size: 0;
+        }
+        #inputcontent{
+            height: 40px;
+            width: 150px;
+            border: 1px solid blue;
+            padding-left: 10px;
+            
+        }
+        #inputcontent:focus{
+            outline: 4px red solid
+        }
+        #sub{
+            width: 70px;
+            height: 40px;
+            display: inline-block;
+            background-color: blue;
+            border: black 1px solid;
+        }
+        #showpromt{
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <form name='form' onsubmit="return validateform()">
+        <input type="text" placeholder="inputhere" id='inputcontent' name='aha'>
+        <input type="submit" value="test" id='sub'>
+        <p id='showpromt'>please input 4-16 ??</p>
+    </form>
+<script>
+    
+    function validateform(){
+        var inputcontent=document.getElementById('inputcontent').value;
+        var sub=document.getElementById('sub');
+        var showpromt=document.getElementById('showpromt');
+        var a;
+        var sum=0;
+        for(var i=0;i<inputcontent.length;i++){
+            a=inputcontent.charCodeAt(i);
+            if(a>0 && a<=255){
+                sum = sum+1;
+                console.log(sum);
+            }
+            else{
+                sum =sum+2;
+                console.log(sum);
+            }
+        }
+        console.log(sum);
+        if(sum<4||sum>16){
+            showpromt.innerHTML='4-16';
+            
+        }
+        else{
+            showpromt.innerHTML='you are right';
+           
+        }
+       
+        return false;
+    }
+</script>
+</body>
+</html>

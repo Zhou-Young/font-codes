@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>task3</title>
+<style type="text/css">
+    #tableins {display: none;}
+    #tableous {display: none;}
+    #ssh {display: none;}
+    #sgz {display: none;}
+</style>
+</head>
+<body>
+<div id="selectbox">
+    <input type="radio" name="student" id="innerschool" value="1" onclick="toChange()">在校生
+    <input type="radio" name="student" id="outerschool" value="2" onclick="toChange()">非在校生
+</div>
+<div id="tableins">
+    <label for="city">城市</label>
+    <select name="city" onchange="Changelist()" id="city"><!-- onchange 触发函数-->
+        <option grade="1" value="1">北京</option>
+        <option grade="2" value="2">上海</option>
+        <option grade="3" value="3">广州</option>
+    </select>
+    <label for="school" >学校</label>
+    <select name="school" id="sbj">
+        <option value="">北京大学</option>
+        <option value="">北京中学</option>
+        <option value="">北京小学</option>
+    </select>
+    <select name="school" id="ssh">
+        <option value="">上海大学</option>
+        <option value="">上海中学</option>
+        <option value="">上海小学</option>
+    </select>
+    <select name="school" id="sgz">
+        <option value="">广州大学</option>
+        <option value="">广州中学</option>
+        <option value="">广州小学</option>
+    </select>
+</div>
+<div id="tableous">
+    <label for="workp">工作单位</label>
+    <input type="text" name="workp">
+</div>
+<script type="text/javascript">
+function toChange(){
+    var obj  = document.getElementsByName('student');
+    for(var i=0;i<obj.length;i++) {
+        if(obj[i].checked==true) {
+            if(obj[i].value=='1') {
+                document.getElementById('tableins').style.display="block";
+                document.getElementById('tableous').style.display="none";
+             }
+            else if(obj[i].value=='2'){
+                document.getElementById('tableous').style.display="block";
+                document.getElementById('tableins').style.display="none";
+            };
+        };
+    };
+};
+function Changelist() {
+    var obj = document.getElementById('city');
+    var city = obj.options[obj.selectedIndex].getAttribute('grade');//设置属性方法来区分
+    if(city==1) {
+        document.getElementById('sbj').style.display="inline-block";
+        document.getElementById('ssh').style.display="none";
+        document.getElementById('sgz').style.display="none";
+    }
+    else if(city==2) {
+        document.getElementById('sbj').style.display="none";
+        document.getElementById('ssh').style.display="inline-block";
+        document.getElementById('sgz').style.display="none";
+    }
+    else if(city==3){
+        document.getElementById('sbj').style.display="none";
+        document.getElementById('ssh').style.display="none";
+        document.getElementById('sgz').style.display="inline-block";
+    };
+};
+</script>
+</body>
+</html>

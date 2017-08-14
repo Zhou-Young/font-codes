@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我们来石头剪刀布呀</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .com,.people{
+            width: 400px;
+            height: 300px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        p{
+            font-size: 40px;
+            line-height: 60px;
+        }
+        .result{
+            text-align: center;
+        }
+        .result p{
+            font-size: 20px;
+        }
+        #compic,#peopic{
+            display: inline-block;
+            width: 300px;
+            height: 200px;
+            margin: 10px;
+        }
+        #compic{
+            background: url("s.jpeg") center center/100% 100% no-repeat;
+
+        }
+        #peopic{
+            background: url("st1.jpg") center center/100% 100% no-repeat;
+        }
+        a{
+            display: inline-block;
+            width: 70px;
+            height: 35px;
+            background-color: #e23a6e;
+            color: white;
+            line-height: 35px;
+            border-radius: 10px 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="com">
+    <p>ji</p>
+    <hr>
+    <div id="compic"></div>
+</div>
+<div class="result">
+    <p id="show">wahahahaha</p>
+</div>
+<div class="people">
+
+    <div id="peopic"></div>
+    <hr>
+    <p>peo</p>
+    <a id="st" onclick="st()">shitou</a>
+    <a id="jd" onclick="jd()">jiandao</a>
+    <a id="b" onclick="b()">bu</a>
+</div>
+<script>
+    var show=document.getElementById("show");
+    var compic=document.getElementById("compic");
+    var peopic=document.getElementById("peopic");
+    function randomsjb(){
+        var num='sjb'[Math.floor(Math.random()*3)];
+        compic.style.background="url(\""+num+".jpeg\") center center/100% 100% no-repeat";
+    }
+    function st(){
+        peopic.style.background="url(\"st1.jpg\") center center/100% 100% no-repeat";
+        randomsjb();
+    }
+    function jd(){
+        peopic.style.background="url(\"jd1.jpg\") center center/100% 100% no-repeat";
+        randomsjb();
+    }
+    function b(){
+        peopic.style.background="url(\"b1.jpg\") center center/100% 100% no-repeat";
+        randomsjb();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .change{
+            height: 600px;
+            width: 400px;
+            margin: 0 auto;
+            border: solid 1px black;
+            text-align: center;
+            background-color: #00FFFF;
+        }
+        a{
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            background-color: #000099;
+            color: #ffffff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="change" id="change">
+        <a id="btn" onclick="getRandomColor()">change background color</a>
+    </div>
+<script>
+    function getRandomColor(){
+        var col= '#' +
+            (function(color){
+                return (color +=  '0123456789abcdef'[Math.floor(Math.random()*16)])
+                && (color.length == 6) ?  color : arguments.callee(color);
+            })('');
+        var col2='#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).substr(-6);
+
+        document.getElementById("change").style.backgroundColor=col;
+        document.getElementById("btn").innerHTML="color"+col;
+    }
+</script>
+</body>
+</html>

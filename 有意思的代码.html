@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    function foo(a,b,c){
+        console.log('a:'+a+';b: '+ b+' c:'+c);
+        return a+b+c;
+    }
+
+    function curry(fn){
+        return function curried(){
+            var args=[].slice.call(arguments);
+            console.log('arguments1:'+arguments.length);
+            console.log('args:'+args);
+            return args.length>= fn.length ?
+                    fn.apply(null,args):
+            function(){
+                var rest = [].slice.call(arguments);
+                console.log('arguments2:'+arguments.length);
+                console.log('rest:'+rest);
+                return curried.apply(null,args.concat(rest));
+            };
+        };
+    }
+
+var curriedFoo = curry(foo);
+curriedFoo(1,2,3);
+curriedFoo(1)(2,3);
+curriedFoo(1)(2)(3);
+</script>
+</body>
+</html>
+

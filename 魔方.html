@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .container{
+            perspective: 1000px;
+
+            position: relative;
+
+
+        }
+        .pre-sd{
+
+            perspective-origin: 50% 50%;
+            transform-style: preserve-3d;
+            width: 300px;
+            height: 300px;
+
+        }
+        .a,.b,.c,.d,.e,.f{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            border-radius: 10px;
+            transition: all 1s ease;
+
+        }
+        .a{
+            background-color: blue;
+            -webkit-transform: translateZ(150px);
+            -moz-transform: translateZ(150px);
+            -ms-transform: translateZ(150px);
+            -o-transform: translateZ(150px);
+            transform: translateZ(150px);
+        }
+        .b{
+            background-color: red;
+            -webkit-transform: translateZ(-150px);
+            -moz-transform: translateZ(-150px);
+            -ms-transform: translateZ(-150px);
+            -o-transform: translateZ(-150px);
+            transform: translateZ(-150px);
+        }
+        .c{
+            background-color: yellow;
+            -webkit-transform: translateX(150px) rotateY(90deg);
+            -moz-transform: translateX(150px) rotateY(90deg);
+            -ms-transform: translateX(150px) rotateY(90deg);
+            -o-transform: translateX(150px) rotateY(90deg);
+            transform: translateX(150px) rotateY(90deg);
+        }
+        .d{
+            background-color: green;
+            -webkit-transform: translateX(-150px) rotateY(-90deg);
+            -moz-transform: translateX(-150px) rotateY(-90deg);
+            -ms-transform: translateX(-150px) rotateY(-90deg);
+            -o-transform: translateX(-150px) rotateY(-90deg);
+            transform: translateX(-150px) rotateY(-90deg);
+        }
+        .e{
+            background-color: black;
+            -webkit-transform: translateY(150px) rotateX(90deg);
+            -moz-transform: translateY(150px) rotateX(90deg);
+            -ms-transform: translateY(150px) rotateX(90deg);
+            -o-transform: translateY(150px) rotateX(90deg);
+            transform: translateY(150px) rotateX(90deg);
+        }
+        .f{
+            background-color: orange;
+            -webkit-transform: translateY(-150px) rotateX(-90deg);
+            -moz-transform: translateY(-150px) rotateX(-90deg);
+            -ms-transform: translateY(-150px) rotateX(-90deg);
+            -o-transform: translateY(-150px) rotateX(-90deg);
+            transform: translateY(-150px) rotateX(-90deg);
+        }
+        .pre-sd{
+            animation: rota 10s ease;
+            -webkit-animation: rota 5s ease infinite alternate;
+        }
+        @keyframes rota {
+            0%{
+                -webkit-transform: rotateX(0deg);
+                -moz-transform: rotateX(0deg);
+                -ms-transform: rotateX(0deg);
+                -o-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+            }
+            25%{
+                -webkit-transform: rotateX(180deg);
+                transform: rotateX(180deg);
+            }
+            50%{
+                -webkit-transform:rotateY(180deg);
+                transform: rotateY(180deg);
+            }
+            100%{
+                -webkit-transform:rotateZ(540deg);
+                transform: rotateZ(540deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="pre-sd">
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="c"></div>
+        <div class="d"></div>
+        <div class="e"></div>
+        <div class="f"></div>
+    </div>
+</div>
+
+</body>
+</html>

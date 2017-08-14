@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-width: 1200px;
+    font-family: 'SimHei','MicrosoftYaHei';
+}
+input,button,select,textarea {
+    outline: none;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration:none;
+}
+.clear{
+    clear:both;
+}
+
+.clearfix:after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+
+.clearfix{
+    *zoom: 1;
+}
+h1,h2,h3,h4,h5,h6,p{
+    font-weight: 100;
+}
+h1{ font-size: 60px;  }
+h2{ font-size: 30px;  }
+h3{ font-size: 28px;  }
+h4{ font-size: 18px;  }
+h5{ font-size: 16px;  }
+h6{ font-size: 14px;  }
+p{ font-size: 12px;  }
+@font-face
+{
+    font-family: MFLangQian_Noncommercial-Regular;
+    src: url('../font/MFLangQian_Noncommercial-Regular.otf');
+}
+@font-face
+{
+    font-family: JZunYuan;
+    src: url('../font/JZunYuan.ttf');
+}
+@font-face
+{
+    font-family: SunYatsenHsingshu;
+    src: url('../font/SunYatsenHsingshu.ttf');
+}
+a{
+    cursor: pointer;
+}
+
+
+
+

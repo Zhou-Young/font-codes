@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+    <style>
+        table,th,td{
+            border: 1px solid red;
+        }
+    </style>
+  </head>
+<body>
+<table id="tab">
+    <tr>
+        <td>
+            学号
+        </td>
+        <td>
+            姓名
+        </td>
+        <td>
+            操作
+            
+        </td>
+    </tr>
+    <tr>
+        <th>01</th>
+        <th>11</th>
+        <th>
+            <a onclick="del(this)">delete</a>
+        </th>
+    </tr>
+    <tr>
+        <th>02</th>
+        <th>12</th>
+        <th>
+            <a onclick="del(this)">delete</a>
+        </th>
+    </tr>
+</table>
+<input placeholder="id" type="text" id="iid"> 
+<input placeholder="name" type="text" id="iname">
+<a onclick="add()">add</a>
+<script type="text/javascript">
+var tab=document.getElementById("tab");
+var tr=document.getElementsByTagName("tr")
+window.onload=function(){
+for(var i=0;i<tr.length;i++){
+   changecolor(tr[i]);
+}
+}
+function changecolor(b){
+     b.onmouseover=function(){
+        b.style.backgroundColor="blue";
+    }
+    b.onmouseout=function(){
+        b.style.backgroundColor="white";
+    }
+}
+    function del(n){
+        var tr=n.parentNode.parentNode;
+        tr.parentNode.removeChild(tr);
+    }
+function add(){
+    var iid=document.getElementById("iid").value;
+    var iname=document.getElementById("iname").value;
+    var str=document.createElement("tr");
+    var sid=document.createElement("th");
+    var sname=document.createElement("th");
+    var sdel=document.createElement("th");
+    sid.innerHTML=iid;
+    sname.innerHTML=iname;
+    sdel.innerHTML="<a onclick='del(this)'>delete</a>"
+    str.appendChild(sid);
+    str.appendChild(sname);
+    str.appendChild(sdel);
+    tab.appendChild(str);
+
+}
+</script>
+</body>
+</html>

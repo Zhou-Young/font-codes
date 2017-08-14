@@ -1,0 +1,81 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>任务四：基础 JavaScript 练习（一）</title>
+    <style>
+        .clear{clear:both;}
+    li{
+        background-color: red;
+        width: 100px;
+        height: 50px;
+        list-style: none;
+        float: left;
+        text-align: center;
+        line-height: 50px;
+        margin: 10px;
+    }
+    
+    </style>
+</head>
+<body>
+    <input id="inputnum" type="number">
+    <button id="leftin">left in</button>
+    <button id="rightin">right in</button>
+    <button id="leftout">left out</button>
+    <button id="rightout">right out</button>
+    <ul id="outputnum">
+       
+        
+    </ul>
+    <script>
+        document.getElementById("leftin").onclick=function(){ leftin() };
+        document.getElementById("leftout").onclick=function(){ leftout() };
+        document.getElementById("rightin").onclick=function(){ rightin() };
+        document.getElementById("rightout").onclick=function(){ rightout() };
+        var inputnum=document.getElementById("inputnum");
+        outputnum.addEventListener("click", function(e) {
+            if (event.target.nodeName.toLowerCase() == "li") {
+                alert(event.target.innerHTML+" has been removed ");
+                outputnum.removeChild(event.target)
+            }
+        })
+         function check(){
+            if(inputnum.value==""||inputnum.value<0||inputnum.value>100){
+                alert("please input number 1-100");
+                return false;
+            }
+            else return 1;
+        }
+        function reset (inputnum) {
+            inputnum.value = ''
+            inputnum.focus()
+        }
+        function rightin(){
+            if(check()){
+                let newli=document.createElement("li");
+                newli.innerHTML=inputnum.value;
+                outputnum.appendChild(newli);
+            }
+            reset(inputnum);
+        }
+        function leftin(){
+             if(check()){
+                let newli=document.createElement("li");
+                newli.innerHTML=inputnum.value;
+                outputnum.insertBefore(newli,outputnum.firstChild);
+             }
+             reset(inputnum);
+        }
+        function leftout(){
+            outputnum.removeChild(outputnum.firstChild);
+            alert(outputnum.firstChild.innerHTML+" has been removed ");
+        }
+        function rightout(){
+            alert(outputnum.lastChild.innerHTML+" has been removed ");
+            outputnum.removeChild(outputnum.lastChild);
+            
+        }
+    </script>
+</body>
+</html>
