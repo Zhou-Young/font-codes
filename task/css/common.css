@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-width: 1280px;
+    font-family: 'SimHei,MicrosoftYaHei';
+    font-weight: 100;
+    -webkit-font-smoothing:antialiased;
+
+}
+input,button,select,textarea {
+    outline: none;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.clear{
+    clear:both;
+}
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: " ";
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix{
+    *zoom: 1;
+}
+h1{ font-size: 60px;  }
+h2{ font-size: 53px;  }
+h3{ font-size: 30px;  }
+h4{ font-size: 21px;  }
+h5{ font-size: 15px;  }
+h6{ font-size: 14px;  }
+p{ font-size: 12px;  }
+.simhei{  font-family: 'SimHei';  }
+.yahei{  font-family: 'MicrosoftYaHei';  }
+
+
+
